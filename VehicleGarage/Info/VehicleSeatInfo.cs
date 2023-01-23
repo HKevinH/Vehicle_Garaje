@@ -19,10 +19,10 @@ namespace VehicleGarage.Info
         {
             _rtb.Clear();
             _rtb.SetBold();
-            _rtb.AppendFormatLine("Seat ID: {0}", Seat.Id);
+            _rtb.AppendFormatLine("Seat ID: {0}", Seat.ID);
             _rtb.SetDefaultStyle();
 
-            _rtb.AppendFormatLine("Attachment ID: {0}", Seat.AttachmentId);
+            _rtb.AppendFormatLine("Attachment ID: {0}", Seat.AttachmentID);
             _rtb.AppendFormatLine("Attachment Offset X: {0}", Seat.AttachmentOffsetX);
             _rtb.AppendFormatLine("Attachment Offset Y: {0}", Seat.AttachmentOffsetY);
             _rtb.AppendFormatLine("Attachment Offset Z: {0}", Seat.AttachmentOffsetZ);
@@ -51,7 +51,7 @@ namespace VehicleGarage.Info
             _rtb.AppendFormatLine("Passenger Yaw: {0}", Seat.PassengerYaw);
             _rtb.AppendFormatLine("Passenger Pitch: {0}", Seat.PassengerPitch);
             _rtb.AppendFormatLine("Passenger Roll: {0}", Seat.PassengerRoll);
-            _rtb.AppendFormatLine("Passenger Attachment ID: {0}", Seat.PassengerAttachmentId);
+            _rtb.AppendFormatLine("Passenger Attachment ID: {0}", Seat.PassengerAttachmentID);
             _rtb.AppendFormatLine("Vehicle Enter Animation: {0}", Seat.VehicleEnterAnim);
             _rtb.AppendFormatLine("Vehicle Enter Animation Bone: {0}", Seat.VehicleEnterAnimBone);
             _rtb.AppendFormatLine("Vehicle Enter Animation Delay: {0}", Seat.VehicleEnterAnimDelay);
@@ -61,9 +61,9 @@ namespace VehicleGarage.Info
             _rtb.AppendFormatLine("Vehicle Ride Animation Loop: {0}", Seat.VehicleRideAnimLoop);
             _rtb.AppendFormatLine("Vehicle Ride Animation Loop Bone: {0}", Seat.VehicleRideAnimLoopBone);
             _rtb.AppendFormatLine("Vehicle Ability Display: {0}", Seat.VehicleAbilityDisplay);
-            _rtb.AppendFormatLine("Vehicle Enter UI Sound ID: {0}", Seat.EnterUiSoundId);
-            _rtb.AppendFormatLine("Vehicle Exit UI Sound ID: {0}", Seat.ExitUiSoundId);
-            _rtb.AppendFormatLine("Vehicle Skin: {0}", Seat.Skin);
+            _rtb.AppendFormatLine("Vehicle Enter UI Sound ID: {0}", Seat.EnterUISoundID);
+            _rtb.AppendFormatLine("Vehicle Exit UI Sound ID: {0}", Seat.ExitUISoundID);
+            _rtb.AppendFormatLine("Vehicle Skin: {0}", Seat.UISkin);
             _rtb.AppendFormatLine("Camera Entering Delay: {0}", Seat.CameraEnteringDelay);
             _rtb.AppendFormatLine("Camera Entering Duration: {0}", Seat.CameraEnteringDuration);
             _rtb.AppendFormatLine("Camera Exiting Delay: {0}", Seat.CameraExitingDelay);

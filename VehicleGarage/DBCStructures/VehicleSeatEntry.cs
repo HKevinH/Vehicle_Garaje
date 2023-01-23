@@ -1,10 +1,12 @@
-﻿namespace VehicleGarage.DBCStructures
+﻿using System;
+
+namespace VehicleGarage.DBCStructures
 {
     public struct VehicleSeatEntry
     {
-        public int Id;
+        public int ID;
         public VehicleSeatFlags Flags;
-        public int AttachmentId;
+        public int AttachmentID;
         public float AttachmentOffsetX;
         public float AttachmentOffsetY;
         public float AttachmentOffsetZ;
@@ -34,7 +36,7 @@
         public float PassengerYaw;
         public float PassengerPitch;
         public float PassengerRoll;
-        public int PassengerAttachmentId;
+        public int PassengerAttachmentID;
         public int VehicleEnterAnim;
         public int VehicleExitAnim;
         public int VehicleRideAnimLoop;
@@ -44,9 +46,9 @@
         public float VehicleEnterAnimDelay;
         public float VehicleExitAnimDelay;
         public int VehicleAbilityDisplay;
-        public int EnterUiSoundId;
-        public int ExitUiSoundId;
-        public int Skin;
+        public int EnterUISoundID;
+        public int ExitUISoundID;
+        public int UISkin;
         public int FlagsB;
         public float CameraEnteringDelay;
         public float CameraEnteringDuration;
@@ -60,5 +62,13 @@
         public float CameraEnteringZoom;
         public float CameraSeatZoomMin;
         public float CameraSeatZoomMax;
+        public int EnterAnimKitID;                               // 57
+        public int RideAnimKitID;                                // 58
+        public int ExitAnimKitID;                                // 59
+        public int VehicleEnterAnimKitID;                        // 60
+        public int VehicleRideAnimKitID;                         // 61
+        public int VehicleExitAnimKitID;                         // 62
+        public int CameraModeID;                                 // 63
+        public float FlagsC;                                     // 64
     }
 }

@@ -6,8 +6,9 @@ namespace VehicleGarage.DBCStructures
     [StructLayout(LayoutKind.Sequential)]
     public struct VehicleEntry
     {
-        public uint Id;
+        public uint ID;
         public uint Flags;
+        public float UnkName;
         public float TurnSpeed;
         public float PitchSpeed;
         public float PitchMin;
@@ -17,48 +18,48 @@ namespace VehicleGarage.DBCStructures
         public float MouseLookOffsetPitch;
         public float CameraFadeDistScalarMin;
         public float CameraFadeDistScalarMax;
-        public float PitchOffset;
+        public float CameraPitchOffset;
         public float FacingLimitRight;
         public float FacingLimitLeft;
-        public float MissleTargetTurnLingering;
-        public float MissleTargetPitchLingering;
-        public float MissleTargetMouseLingering;
-        public float MissleTargetEndOpacity;
-        public float MissleTargetArcSpeed;
-        public float MissleTargetArcRepeat;
-        public float MissleTargetArcWidth;
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)] 
-        public float[] MissleTargetImpactRadius;
-        private readonly uint _missleTargetArcTexture;
-        private readonly uint _missleTargetImpactTexture;
-        private readonly uint _missleTargetImpactModel1;
-        private readonly uint _missleTargetImpactModel2;
+        public float MissileTargetTurnLingering;
+        public float MissileTargetPitchLingering;
+        public float MissileTargetMouseLingering;
+        public float MissileTargetEndOpacity;
+        public float MissileTargetArcSpeed;
+        public float MissileTargetArcRepeat;
+        public float MissileTargetArcWidth;
+        public float MissileTargetImpactRadius_1;
+        public float MissileTargetImpactRadius_2;
+        private readonly uint MissileTargetArcTexture;
+        private readonly uint MissileTargetImpactTexture;
+        private readonly uint MissileTargetImpactModel_1;
+        private readonly uint MissileTargetImpactModel_2;
         public float CameraYawOffset;
-        public int LocomotionType;
-        public float MissleTargetImpactTexRadius;
-        public int SeatIndicatorType;
+        public int UILocomotionType;
+        public float MissileTargetImpactTexRadius;
+        public int UISeatIndicatorType;
         public int PowerType;
         public int Unk1;        // New in 3.1 - Either -1 or 0 (most common) - PowerType[1]?
         public int Unk2;        // New in 3.1 - Always 0 - PowerType[2]?
 
         public string MissleTargetArcTexture
         {
-            get { return DBC.VehicleStrings[_missleTargetArcTexture]; }
+            get { return DBC.VehicleStrings[MissileTargetArcTexture]; }
         }
 
         public string MissleTargetImpactTexture
         {
-            get { return DBC.VehicleStrings[_missleTargetImpactTexture]; }
+            get { return DBC.VehicleStrings[MissileTargetArcTexture]; }
         }
 
         public string MissleTargetImpactModel1
         {
-            get { return DBC.VehicleStrings[_missleTargetImpactModel1]; }
+            get { return DBC.VehicleStrings[MissileTargetImpactModel_1]; }
         }
 
         public string MissleTargetImpactModel2
         {
-            get { return DBC.VehicleStrings[_missleTargetImpactModel2]; }
+            get { return DBC.VehicleStrings[MissileTargetImpactModel_2]; }
         }
 
     }

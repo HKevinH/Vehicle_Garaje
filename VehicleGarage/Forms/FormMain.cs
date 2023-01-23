@@ -72,18 +72,18 @@ namespace VehicleGarage.Forms
             var filterAdvanced2 = (advancedFilter2 != String.Empty);
             
             _vehicleResults = DBC.Vehicle.Values.Where(x => (
-                (!filterVehicleId || x.Id == vehicleIdFilter)
+                (!filterVehicleId || x.ID == vehicleIdFilter)
                 &&
                 (!filterCreatureId ||
                     SQL.CreatureTemplate.Count(
                         y =>
-                        y.Value.VehicleId == x.Id &&
+                        y.Value.VehicleId == x.ID &&
                         y.Value.Id == creatureIdFilter) == 1)
                 &&
                 (!filterCreatureName ||
                     SQL.CreatureTemplate.Count(
                         y =>
-                        y.Value.VehicleId == x.Id &&
+                        y.Value.VehicleId == x.ID &&
                         y.Value.Name.Contains(creatureNameFilter)) == 1)
                 &&
                 (!filterVehicleFlagMask ||
@@ -131,7 +131,7 @@ namespace VehicleGarage.Forms
             Contract.Requires(e.ItemIndex < this._vehicleResults.Count);
 
             var vehicle = _vehicleResults[e.ItemIndex];
-            e.Item = new ListViewItem(new[] { vehicle.Id.ToString(), VehicleInfo.GetUsedCount(vehicle).ToString()});
+            e.Item = new ListViewItem(new[] { vehicle.ID.ToString(), VehicleInfo.GetUsedCount(vehicle).ToString()});
         }
 
         private void _bSearch_MouseClick(object sender, MouseEventArgs e)

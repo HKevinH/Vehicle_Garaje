@@ -6,7 +6,7 @@ namespace VehicleGarage.DBCStores
 {
     public static class DBC
     {
-        public const int ClientVersion = 12340;
+        public const int ClientVersion = 18414;
         public const int MaxDBCLocale = 16;
 
         public static string DBCPath

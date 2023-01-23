@@ -36,7 +36,7 @@ namespace VehicleGarage.DBCStores
                         throw new Exception(
                             string.Format("Size of row in DBC file ({0}) != size of DBC struct ({1}) in DBC: {2}",
                                           header.RecordSize, size, fileName));
-
+                    
                     // read dbc data
                     for (var r = 0; r < header.RecordsCount; ++r)
                     {

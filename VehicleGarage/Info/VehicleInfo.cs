@@ -43,31 +43,31 @@ namespace VehicleGarage.Info
         {
             _rtb.Clear();
             _rtb.SetBold();
-            _rtb.AppendFormatLine("Vehicle ID: {0}", _vehicle.Id);
-            _rtb.AppendFormatLine("Locomotion Type: {0}", _vehicle.LocomotionType);
-            _rtb.AppendFormatLine("Seat Indicator Type: {0}", _vehicle.SeatIndicatorType);
+            _rtb.AppendFormatLine("Vehicle ID: {0}", _vehicle.ID);
+            _rtb.AppendFormatLine("Locomotion Type: {0}", _vehicle.UILocomotionType);
+            _rtb.AppendFormatLine("Seat Indicator Type: {0}", _vehicle.UISeatIndicatorType);
             _rtb.AppendFormatLine("Power Type: {0}", _vehicle.PowerType);
             _rtb.AppendFormatLine("Turn Speed: {0}", _vehicle.TurnSpeed);
             _rtb.AppendFormatLine("Pitch Speed: {0}", _vehicle.PitchSpeed);
             _rtb.AppendFormatLine("Pitch Min: {0}", _vehicle.PitchMin);
             _rtb.AppendFormatLine("Pitch Max: {0}", _vehicle.PitchMax);
-            _rtb.AppendFormatLine("Pitch Offset: {0}", _vehicle.PitchOffset);
+            _rtb.AppendFormatLine("Pitch Offset: {0}", _vehicle.CameraPitchOffset);
             _rtb.AppendFormatLine("Mouselook Offset Pitch: {0}", _vehicle.MouseLookOffsetPitch);
             _rtb.AppendFormatLine("Camera Fade Distance Scalar Min: {0}", _vehicle.CameraFadeDistScalarMin);
             _rtb.AppendFormatLine("Camera Fade Distance Scalar Max: {0}", _vehicle.CameraFadeDistScalarMax);
             _rtb.AppendFormatLine("Camera Yaw Offset: {0}", _vehicle.CameraYawOffset);
             _rtb.AppendFormatLine("Facing Limit Right: {0}", _vehicle.FacingLimitRight);
             _rtb.AppendFormatLine("Facing Limit Left: {0}", _vehicle.FacingLimitLeft);
-            _rtb.AppendFormatLine("Missle Target Turn Lingering: {0}", _vehicle.MissleTargetTurnLingering);
-            _rtb.AppendFormatLine("Missle Target Pitch Lingering: {0}", _vehicle.MissleTargetPitchLingering);
-            _rtb.AppendFormatLine("Missle Target Mouse Lingering: {0}", _vehicle.MissleTargetMouseLingering);
-            _rtb.AppendFormatLine("Missle Target End Opacity: {0}", _vehicle.MissleTargetEndOpacity);
-            _rtb.AppendFormatLine("Missle Target Arc Speed: {0}", _vehicle.MissleTargetArcSpeed);
-            _rtb.AppendFormatLine("Missle Target Arc Repeat: {0}", _vehicle.MissleTargetArcRepeat);
-            _rtb.AppendFormatLine("Missle Target Arc Width: {0}", _vehicle.MissleTargetArcWidth);
-            _rtb.AppendFormatLine("Missle Target Impact Radius 1: {0}", _vehicle.MissleTargetImpactRadius[0]);
-            _rtb.AppendFormatLine("Missle Target Impact Radius 2: {0}", _vehicle.MissleTargetImpactRadius[1]);
-            _rtb.AppendFormatLine("Missle Target Impact Texture Radius: {0}", _vehicle.MissleTargetImpactTexRadius);
+            _rtb.AppendFormatLine("Missle Target Turn Lingering: {0}", _vehicle.MissileTargetTurnLingering);
+            _rtb.AppendFormatLine("Missle Target Pitch Lingering: {0}", _vehicle.MissileTargetPitchLingering);
+            _rtb.AppendFormatLine("Missle Target Mouse Lingering: {0}", _vehicle.MissileTargetMouseLingering);
+            _rtb.AppendFormatLine("Missle Target End Opacity: {0}", _vehicle.MissileTargetEndOpacity);
+            _rtb.AppendFormatLine("Missle Target Arc Speed: {0}", _vehicle.MissileTargetArcSpeed);
+            _rtb.AppendFormatLine("Missle Target Arc Repeat: {0}", _vehicle.MissileTargetArcRepeat);
+            _rtb.AppendFormatLine("Missle Target Arc Width: {0}", _vehicle.MissileTargetArcWidth);
+            _rtb.AppendFormatLine("Missle Target Impact Radius 1: {0}", _vehicle.MissileTargetImpactRadius_1);
+            _rtb.AppendFormatLine("Missle Target Impact Radius 2: {0}", _vehicle.MissileTargetImpactRadius_2);
+            _rtb.AppendFormatLine("Missle Target Impact Texture Radius: {0}", _vehicle.MissileTargetImpactTexRadius);
             _rtb.AppendFormatLine("Missle Target Arc Texture: {0}", _vehicle.MissleTargetArcTexture);
             _rtb.AppendFormatLine("Missle Target Impact Model 1: {0}", _vehicle.MissleTargetImpactModel1);
             _rtb.AppendFormatLine("Missle Target Impact Model 2: {0}", _vehicle.MissleTargetImpactModel2);
@@ -88,7 +88,7 @@ namespace VehicleGarage.Info
             _rtb.SetDefaultStyle();
 
             foreach (var c in
-                SQL.CreatureTemplate.Where(x => x.Value.VehicleId == _vehicle.Id).Select(creature => creature.Value))
+                SQL.CreatureTemplate.Where(x => x.Value.VehicleId == _vehicle.ID).Select(creature => creature.Value))
             {
                 _rtb.AppendFormatLine("{0} - {1}", c.Id, c.Name);
                 _rtb.SetDefaultStyle();
@@ -121,7 +121,7 @@ namespace VehicleGarage.Info
                         _rtb.AppendFormatLine("    Accessory is a vehicle.");
 
                         var val = vehicleSeats.Find(
-                            Seats.Find(x => x.Seat.Id == _vehicle.SeatId[accessory.SeatId]).Seat
+                            Seats.Find(x => x.Seat.ID == _vehicle.SeatId[accessory.SeatId]).Seat
                                 );
                         
                         VehicleEntry vehicle;
@@ -143,7 +143,7 @@ namespace VehicleGarage.Info
                     _rtb.SetBold();
                     _rtb.AppendFormatLine("The following seats can be cycled trough by the player (recursive cycling included)");
                     foreach (var vs in vehicleSeats)
-                        _rtb.AppendFormat("{0}->", vs.Id);
+                        _rtb.AppendFormat("{0}->", vs.ID);
                     _rtb.SetDefaultStyle();
                     _rtb.AppendLine();
                 }
@@ -166,7 +166,7 @@ namespace VehicleGarage.Info
 
         public static uint GetUsedCount(VehicleEntry vehicle)
         {
-            return SQL.CreatureTemplate.Count(x => x.Value.VehicleId == vehicle.Id).ToUInt32();
+            return SQL.CreatureTemplate.Count(x => x.Value.VehicleId == vehicle.ID).ToUInt32();
         }
     }
 }
